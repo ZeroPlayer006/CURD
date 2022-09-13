@@ -57,10 +57,10 @@ export const insertMany = async ( request, response ) => {
 };
 
 export const updateAge = async ( request, response ) => {
-    const { email, password, age } = request.body;
+    const { email, password, age, address } = request.body;
     try {
-        await Users.findOneAndUpdate( { email, password }, { age } );
-        response.status( 200 ).json( { message: "Age updated sucessfully" } );
+        await Users.findOneAndUpdate( { email, password }, { age, address } );
+        response.status( 200 ).json( { message: "age and address updated sucessfully" } );
     } catch ( error ) {
         response.status( 500 ).json( { message: error.message } );
     }
